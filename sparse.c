@@ -116,6 +116,7 @@ void main()
         sum[0][1]=c[0][1];
         sum[0][2]=count;
     }
+    
     else
     {
         printf("Error!! : Addition is not possible");
