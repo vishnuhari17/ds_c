@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<st
 void main()
 {
     int a[50][50],b[50][50],c[50][50],pt1=1,pt2=1,f1=0;
