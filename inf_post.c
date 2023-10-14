@@ -23,7 +23,7 @@ char pop()
 
 int is_operator(char ch)
 {
-    return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^');
+    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
 }
 
 int precedence(char ch)
@@ -35,10 +35,6 @@ int precedence(char ch)
     else if (ch == '*' || ch == '/')
     {
         return 2;
-    }
-    else if (ch == '^')
-    {
-        return 3; 
     }
     return 0;
 }
@@ -66,6 +62,15 @@ void main()
         }
         else if (symbol == '(')
         {
+            push(symbol);
+        }
+        else if (symbol == '^')
+        {
+            while (precedence(stack[top]) > precedence(symbol))
+            {
+                postfix[j]=pop();
+                j++;
+            }
             push(symbol);
         }
         else if (is_operator(symbol))
