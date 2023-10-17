@@ -1,41 +1,43 @@
 #include<stdio.h>
 #define MAX 5
-void enqueuefront();
-void enqueuerear();
-void dequeuefront();
-void dequeuerear();
-void displayDeque();
-int c,d,item,front=-1,rear=-1,q[MAX],i,temp,del,d=1;
+void enqueueFront();
+void enqueueRear();
+void dequeueFront();
+void dequeueRear();
+void display();
+int front=-1,rear=-1,q[MAX];
 void main()
 {
-    int ch;
-    printf("1--Enqueuefront\n--Enqueurear\n3--Dequeuefront\n4--Dequeuerear\n5--Exit");
-    do{
+    int ch,d=1;
+    do
+    {
+    	printf("1--Enqueue (Front)\n2--Enqueue (Rear)\n3--Dequeue (Front)\n4--Dequeue (Rear)\n5--Exit\n");
         printf("Enter your choice : ");
         scanf("%d",&ch);
         if(ch==1)
         {
-            enqueuefront();
-            displayDeque();
+            enqueueFront();
+            display();
         }
         else if(ch==2)
         {
-            enqueuerear();
+            enqueueRear();
+            display();
         }
         else if(ch==3)
         {
-            dequeuefront();
+            dequeueFront();
             if(front!=-1)
             {
-                displayDeque();
+                display();
             }
         }
         else if(ch==4)
         {
-            dequeuerear();
+            dequeueRear();
             if(front!=-1)
             {
-                displayDeque();
+                display();
             }
         }
         else if(ch==5)
@@ -46,8 +48,10 @@ void main()
         }
     }while(d==1);
 }
-void enqueuefront()
+
+void enqueueFront()
 {
+	int item,temp;
     printf("Enter your item : ");
     scanf("%d",&item);
     if(front==-1)
@@ -68,7 +72,7 @@ void enqueuefront()
         }
         if(temp==rear)
         {
-            printf("STACK OVERFLOW !\n");
+            printf("Queue is full...Cannot Enqueue\n");
         }
         else
         {
@@ -77,8 +81,10 @@ void enqueuefront()
         }
     }
 }
-void enqueuerear()
+
+void enqueueRear()
 {
+	int item;
     printf("Enter your item : ");
     scanf("%d",&item);
     if(front==-1)
@@ -89,7 +95,7 @@ void enqueuerear()
     }
     else if(front==(rear+1)%MAX)
     {
-         printf("STACK OVERFLOW !\n");
+         printf("Queue is full...Cannot Enqueue\n");
     }
     else
     {
@@ -98,16 +104,18 @@ void enqueuerear()
        
     }
 }
-void dequeuefront()
+
+void dequeueFront()
 {
+	int del_item;
     if(front==-1)
     {
-        printf("STACK UNDERFLOW !\n");
+        printf("Queue is Empty...Cannot Dequeue\n");
     }
     else
     {
-        del=q[front];
-        printf("%d is the deleted item\n",del);
+        del_item=q[front];
+        printf("%d is the deleted item\n",del_item);
         if(front==rear)
         {
             front=rear=-1;
@@ -118,16 +126,18 @@ void dequeuefront()
         }
     }
 }
-void dequeuerear()
+
+void dequeueRear()
 {
+	int del_item;
     if(front==-1)
     {
-        printf("STACK UNDERFLOW !\n");
+        printf("Queue is Empty...Cannot Dequeue\n");
     }
     else
     {
-        del=q[rear];
-        printf("%d is the deleted item\n",del);
+        del_item=q[rear];
+        printf("%d is the deleted item\n",del_item);
         if(front==rear)
         {
             front=rear=-1;
@@ -142,14 +152,19 @@ void dequeuerear()
         }
     }
 }
-void displayDeque()
+
+void display()
 {
     int i;
-    if (front == -1) {
-        printf("Deque is empty.\n");
-    } else {
-        printf("Deque elements from front to rear: ");
-        for (i = front; i != rear; i = (i + 1) % MAX) {
+    if (front == -1) 
+    {
+        printf("The queue is empty.\n");
+    } 
+    else 
+    {
+        printf("Queue elements are : ");
+        for (i = front; i != rear; i = (i + 1) % MAX) 
+        {
             printf("%d ", q[i]);
         }
         printf("%d\n", q[rear]);
