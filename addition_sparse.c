@@ -1,140 +1,179 @@
 #include<stdio.h>
-void main()
+int main()
 {
-    int a[50][50],b[50][50],c[50][50],pt1=1,pt2=1,f1=0;
-    int r1,c1,n1,r2,c2,n2,i,j;
-    printf("Enter the no of rows of first triplet: ");
-    scanf("%d",&r1);
-    printf("Enter the no of cols of first triplet: ");
-    scanf("%d",&c1);
-    printf("Enter the no of non zero elements of the first triplet: ");
-    scanf("%d",&n1);
-    printf("Enter the triplet:\n");
-    for(i=1;i<=n1;i++)
+    int a[50][50],b[50][50],tr1[50][50],tr2[50][50],i,j,r1,r2,c1,c2,m,n,k;
+    int add[50][50];
+    printf("Enter no of rows and columns of matrix A\n");
+    scanf("%d %d",&r1,&c1);
+    printf("Enter the sparce elements of matrix A\n");
+    for(i=0;i<r1;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<c1;j++)
         {
             scanf("%d",&a[i][j]);
         }
     }
-    a[0][0]=r1;
-    a[0][1]=c1;
-    a[0][2]=n1;
-    printf("Enter the no of rows of second triplet: ");
-    scanf("%d",&r2);
-    printf("Enter the no of cols of second triplet: ");
-    scanf("%d",&c2);
-    printf("Enter the no of non zero elements of the second triplet: ");
-    scanf("%d",&n2);
-    printf("Enter the triplet:\n");
-    for(i=1;i<=n2;i++)
+    printf("The entered sparce A is\n");
+    for(i=0;i<r1;i++)
+    {
+        for(j=0;j<c1;j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    m=0;
+    for(i=0;i<r1;i++)
+    {
+        for(j=0;j<c1;j++)
+        {
+            if(a[i][j]!=0)
+            {
+                m++;
+                tr1[m][0]=i;
+                tr1[m][1]=j;
+                tr1[m][2]=a[i][j];
+            }
+        }
+    }
+    tr1[0][0]=r1;
+    tr1[0][1]=c1;
+    tr1[0][2]=m;
+    printf("The triplet representation of sparce A is\n");
+    for(i=0;i<=m;i++)
     {
         for(j=0;j<3;j++)
+        {
+            printf("%d ",tr1[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Enter the no of rows and columns of matrix B\n");
+    scanf("%d %d",&r2,&c2);
+    printf("Enter the sparce elements of matrix B\n");
+    for(i=0;i<r2;i++)
+    {
+        for(j=0;j<c2;j++)
         {
             scanf("%d",&b[i][j]);
         }
     }
-    b[0][0]=r2;
-    b[0][1]=c2;
-    b[0][2]=n2;
-    printf("The triplet 1 is : \n");
-    for(i=0;i<n1;i++)
+    printf("The entered sparce B is\n");
+    for(i=0;i<r2;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<c2;j++)
         {
-            printf("%d\t",a[i][j]);
+            printf("%d ",b[i][j]);
         }
         printf("\n");
     }
-    printf("The triplet 2 is : \n");
-    for(i=0;i<n2;i++)
+    n=0;
+    for(i=0;i<r2;i++)
     {
-        for(j=0;j<3;j++)
+        for(j=0;j<c2;j++)
         {
-            printf("%d\t",b[i][j]);
-        }
-        printf("\n");
-    }
-    if(r1==r2 && c1==c2)
-    {
-        while(pt1<=n1 && pt2<=n2)
-        {
-            if(a[pt1][0]==b[pt2][0])
+            if(b[i][j]!=0)
             {
-                if(a[pt1][1]==b[pt2][1])
+                n++;
+                tr2[n][0]=i;
+                tr2[n][1]=j;
+                tr2[n][2]=b[i][j];
+            }
+        }
+    }
+    tr2[0][0]=r2;
+    tr2[0][1]=c2;
+    tr2[0][2]=n;
+    printf("The triplet representation of sparce B is\n");
+    for(i=0;i<=n;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            printf("%d ",tr2[i][j]);
+        }
+        printf("\n");
+    }
+    i=1;
+    j=1;
+    k=1;
+    if(tr1[0][0]==tr2[0][0] && tr1[0][1]==tr2[0][1])
+    {
+        while(i<=tr1[0][2] && j<=tr2[0][2])
+        {
+            if(tr1[i][0]==tr2[j][0] && tr1[i][1]==tr2[j][1])
+            {
+                add[k][0]=tr1[i][0];
+                add[k][1]=tr1[i][1];
+                add[k][2]=tr1[i][2]+tr2[j][2];
+                i++,j++,k++;
+            }
+            else if(tr1[i][0]==tr2[j][0])
+            {
+                if(tr1[i][1]<tr2[j][1])
                 {
-                    f1++;
-                    c[f1][0]=a[pt1][0];
-                    c[f1][1]=a[pt1][1];
-                    c[f1][2]=a[pt1][2]+b[pt2][2];
-                    pt1++;
-                    pt2++;
-                }
-                else if(a[pt1][1]<b[pt2][1])
-                {
-                    f1++;
-                    c[f1][0]=a[pt1][0];
-                    c[f1][1]=a[pt1][1];
-                    c[f1][2]=a[pt1][2];
-                    pt1++;
+                    add[k][0]=tr1[i][0];
+                    add[k][1]=tr1[i][1];
+                    add[k][2]=tr1[i][2];
+                    i++,k++;
                 }
                 else
                 {
-                    f1++;
-                    c[f1][0]=b[pt2][0];
-                    c[f1][1]=b[pt2][1];
-                    c[f1][2]=b[pt2][2];
-                    pt2++;
+                    add[k][0]=tr2[j][0];
+                    add[k][1]=tr2[j][1];
+                    add[k][2]=tr2[j][2];
+                    j++,k++;
                 }
-            }
-            else if(a[pt1][0]<b[pt2][0])
-            {
-                f1++;
-                c[f1][0]=a[pt1][0];
-                c[f1][1]=a[pt1][1];
-                c[f1][2]=a[pt1][2];
-                pt1++;
             }
             else
             {
-                f1++;
-                c[f1][0]=b[pt2][0];
-                c[f1][1]=b[pt2][1];
-                c[f1][2]=b[pt2][2];
-                pt2++;
+                if(tr1[i][0]<tr2[j][0])
+                {
+                    add[k][0]=tr1[i][0];
+                    add[k][1]=tr1[i][1];
+                    add[k][2]=tr1[i][2];
+                    i++,k++;
+                }
+                else
+                {
+                    add[k][0]=tr2[j][0];
+                    add[k][1]=tr2[j][1];
+                    add[k][2]=tr2[j][2];
+                    j++,k++;
+                }
             }
         }
-        while(pt1<=n1)
+        while(i<=tr1[0][2])
         {
-            f1++;
-            c[f1][0]=a[pt1][0];
-            c[f1][1]=a[pt1][1];
-            c[f1][2]=a[pt1][2];
-            pt1++;
+            add[k][0]=tr1[i][0];
+            add[k][1]=tr1[i][1];
+            add[k][2]=tr1[i][2];
+            i++,k++;
         }
-        while(pt2<=n2)
+        while(j<=tr2[0][2])
         {
-            f1++;
-            c[f1][0]=b[pt2][0];
-            c[f1][1]=b[pt2][1];
-            c[f1][2]=b[pt2][2];
-            pt2++;
+            add[k][0]=tr2[j][0];
+            add[k][1]=tr2[j][1];
+            add[k][2]=tr2[j][2];
+            j++,k++;
         }
-        c[0][0]=r1;
-        c[0][1]=r2;
-        c[0][2]=f1;
-        printf("The added triplet is : \n");
-        for(i=0;i<=f1;i++)
+        add[0][0]=tr1[0][0];
+        add[0][1]=tr1[0][1];
+        add[0][2]=k-1;
+        printf("The added matrix is\n");
+        for(i=0;i<=add[0][2];i++)
         {
             for(j=0;j<3;j++)
             {
-                printf("%d\t",c[i][j]);
+                printf("%d ",add[i][j]);
             }
             printf("\n");
         }
     }
     else
     {
-        printf("Addition is not possible!!");
+        printf("Addition not possible\n");
     }
 }
+
+
+
