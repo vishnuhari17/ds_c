@@ -78,11 +78,11 @@ void main()
             printf("%d",poly3[i].coeff);
             break;
         }
-        else
+        printf("%dx^%d ", poly3[i].coeff, poly3[i].exp);
+        if(i!=0)
         {
             printf("+ ");
         }
-        printf("%dx^%d ", poly3[i].coeff, poly3[i].exp);
     }
 
     printf("\n");

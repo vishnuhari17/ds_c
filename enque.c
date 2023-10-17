@@ -77,7 +77,7 @@ void main()
             printf("The item was inserted successfully\n");
             display();
         }
-        if(ch==2)
+        else if(ch==2)
         {
             dequeue();
             if(front!=-1)
@@ -86,7 +86,7 @@ void main()
             }
             
         }
-        if(ch==3)
+        else if(ch==3)
         {
             printf("Exiting.....\n");
             break;
