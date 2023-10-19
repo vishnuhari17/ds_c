@@ -67,3 +67,24 @@ void main()
 		printf("Element not found!!\n");
 	}
 }
+
+
+/* 
+Enter the no of elements : 5
+Enter the elements:
+1
+2
+3
+4
+5
+Index	:	Position 
+[0]	:	1
+[1]	:	2
+[2]	:	3
+[3]	:	4
+[4]	:	5
+
+Enter the element to be searched : 4 
+Element found at index : 3
+*/
+

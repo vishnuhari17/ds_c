@@ -110,3 +110,9 @@ void main()
     reverseString(prefix);
     puts(prefix);
 }
+
+/*
+Enter the infix expression:
+a+b*c/d^e^(f-g)
++a/*bc^^de-fg
+*/

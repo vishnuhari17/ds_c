@@ -96,3 +96,9 @@ void main()
     }
     puts(postfix);
 }
+
+/*
+Enter the infix expression:
+a+b*c/d^e^(f-g)
+abc*d/+efg-^^
+*/

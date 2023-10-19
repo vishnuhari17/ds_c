@@ -170,3 +170,68 @@ void display()
         printf("%d\n", q[rear]);
     }
 }
+
+/*
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 1
+Enter your item : 2
+Queue elements are : 2
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 1
+Enter your item : 4
+Queue elements are : 4 2
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 2
+Enter your item : 5
+Queue elements are : 4 2 5
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 4
+5 is the deleted item
+Queue elements are : 4 2
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 3
+4 is the deleted item
+Queue elements are : 2
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 4
+2 is the deleted item
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 4
+Queue is Empty...Cannot Dequeue
+1--Enqueue (Front)
+2--Enqueue (Rear)
+3--Dequeue (Front)
+4--Dequeue (Rear)
+5--Exit
+Enter your choice : 5
+Exiting.....
+
+*/

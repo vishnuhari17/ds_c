@@ -95,3 +95,83 @@ void main()
 
     }
 }
+
+/*
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 5
+The current queue is :5
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 7
+The current queue is :5 7
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 3
+The current queue is :5 7 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 8
+The current queue is :5 7 3 8
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 3
+The current queue is :5 7 3 8 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 1
+Enter the no to be inserted : 7
+The queue is full....Cannot insert more elements :(
+The current queue is :5 7 3 8 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The item 5 was deleted
+The current queue is :7 3 8 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The item 7 was deleted
+The current queue is :3 8 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The item 3 was deleted
+The current queue is :8 3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The item 8 was deleted
+The current queue is :3
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The item 3 was deleted
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 2
+The queue is empty
+1--Enqueue
+2--Dequeue
+3--Exit
+Enter your choice: 3
+Exiting.....
+
+*/
