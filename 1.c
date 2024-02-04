@@ -60,6 +60,21 @@ void print_bst(struct node *head,int k1, int k2)
         print_bst(head->rchild,k1,k2);
 }
 
+struct node *array[100];
+int top = -1;
+void push(struct node *ptr)
+{
+    array[++top] = ptr;
+}
+
+struct node* pop()
+{
+    if(top>-1)
+    {
+        return array[top--];
+    }
+}
+
 void main()
 {
     int choice,k1,k2;
