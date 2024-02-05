@@ -1,7 +1,7 @@
 // Write a non recursive algorithm and program to find the preorder traversal of a
 // binary tree.
 
-void non_reccursive_preorder(struct node *root)
+void non_recursive_preorder(struct node *root)
 {
     if(root==NULL)
     {
@@ -21,4 +21,15 @@ void non_reccursive_preorder(struct node *root)
                 push(ptr->lchild);
         }
     }
+}
+
+
+void non_recursive_inorder(struct node *root)
+{
+     if(root==NULL)
+    {
+        printf("The Binary tree is empty\n");
+    }
+    else
+    {}
 }

@@ -75,6 +75,49 @@ struct node* pop()
     }
 }
 
+void non_reccursive_preorder(struct node *root)
+{
+    if(root==NULL)
+    {
+        printf("The Binary tree is empty\n");
+    }
+    else
+    {
+        ptr = root;
+        push(ptr);
+        while(top!=-1)
+        {
+            ptr = pop();
+            printf("%d\t",ptr->data);
+            if(ptr->rchild!=NULL)
+                push(ptr->rchild);
+            if(ptr->lchild!=NULL)
+                push(ptr->lchild);
+        }
+    }
+}
+
+void non_recursive_postorder(struct node *root)
+{
+    ptr = root;
+    while (ptr != NULL && top != -1)
+    {
+        if(ptr!=NULL)
+        {
+            push(ptr);
+            ptr=ptr->lchild;
+        }
+        else
+        {
+            ptr = pop();
+            if(ptr->rchild!=NULL)
+                ptr=ptr->rchild;
+            printf("%d",ptr->data);
+        }
+    }
+    
+}
+
 void main()
 {
     int choice,k1,k2;
@@ -84,9 +127,11 @@ void main()
         scanf("%d",&choice);
     }while(choice==1);
     printf("Binary Search tree created successfully!\n");
-    printf("Enter the limits k1 and k2 : \n");
-    scanf("%d%d",&k1,&k2);
-    printf("The Bst elements between those limits is : ");
-    print_bst(root,k1,k2);
+    // printf("Enter the limits k1 and k2 : \n");
+    // scanf("%d%d",&k1,&k2);
+    // printf("The Bst elements between those limits is : ");
+    // print_bst(root,k1,k2);
+    printf("Binary Search tree is : \n");
+    non_recursive_postorder(root);
     printf("\n");
 }
